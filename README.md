@@ -1,93 +1,26 @@
-import random
+# Number Guessing Game 🎮
 
-print("Welcome to the Number Guessing Game")
-play_again = True
+## About the Game
+Number Guessing Game is a simple game written in Python.
+The computer randomly selects a number between 1 and 100, and the player tries to guess it.
 
-while play_again == True:
+## How to Play
+- The computer selects a random number between 1 and 100.
+- The player has 5 attempts to guess the correct number.
+- After each incorrect guess, the game gives a hint to help the player.
+- The game shows how close the guess is to the correct number.
+- The player receives a score based on the number of attempts used.
+- After each round, the player can choose to play again or exit the game.
 
-    number = random.randint(1, 100)
-    guess = 0
-    attempts = 0
-    max_attempts = 5
+## Requirements
+- Python 3
 
-    while attempts < max_attempts:
+## How to Run
+1. Download the `number_guessing_game.py` file.
+2. Open a terminal in the folder containing the file.
+3. Run the following command:
 
-        while True:
-            try:
-                guess = int(input("Guess a number between 1 and 100:"))
-                break
-            except ValueError:
-                print("You must enter a number!")
-                print("----------------------------------")
+   `python number_guessing_game.py`
 
-        distance = abs(number - guess)
-
-        if 0 < guess < number:
-            attempts += 1
-            print(f"My number is higher than {guess}")
-            
-            if distance <= 5:
-                print("You're very close")
-            elif 5 < distance <= 15:
-                print("You're close")
-            else:
-                print("You're far away")
-
-            print(f"Guess number: {attempts} of {max_attempts}")
-            print(f"Attempts remaining: {max_attempts - attempts}")
-            print("----------------------------------")
-
-        elif number < guess <= 100:
-            attempts += 1
-            print(f"My number is lower than {guess}")
-            
-            if distance <= 5:
-                print("You're very close")
-            elif 5 < distance <= 15:
-                print("You're close")
-            else:
-                print("You're far away")
-
-            print(f"Guess number: {attempts} of {max_attempts}")
-            print(f"Attempts remaining: {max_attempts - attempts}")
-            print("----------------------------------")
-            
-
-        elif guess == number:
-            attempts += 1
-            print(f"Yes its {number} you won!")
-
-            if attempts == 1:
-                print("Your score: ★ ★ ★ ★ ★")
-            elif attempts == 2:
-                print("Your score: ★ ★ ★ ★")
-            elif attempts == 3:
-                print("Your score: ★ ★ ★")
-            elif attempts == 4:
-                print("Your score: ★ ★")
-            elif attempts == 5:
-                print("Your score: ★")
-
-            break
-
-        else :
-            print("Invalid number. Please enter a number between 1 and 100.")
-            print("----------------------------------")
-
-    if guess != number:
-        print(f"Oh you lost ): The number was {number}")
-
-    while True:
-        p = input("Would you like to play again? (y/n)")
-
-        if p.lower() == "y":
-            print("Okay, let's play again")
-            break
-        elif p.lower() == "n":
-            print("Have a good day! Bye")
-            play_again = False
-            break
-        else:
-            print("Please enter only 'y' or 'n'")
-            print("----------------------------------")
-            continue
+## Author
+Mohammadamin Sadeghi
